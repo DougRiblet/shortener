@@ -1,0 +1,24 @@
+{
+  "name": "shortener",
+  "version": "1.0.0",
+  "description": "URL shortener microservice",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smashzen/shortener.git"
+  },
+  "author": "Doug Riblet",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smashzen/shortener/issues"
+  },
+  "homepage": "https://github.com/smashzen/shortener#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "mongodb": "^2.2.11",
+    "mongoose": "^4.6.5"
+  }
+}
