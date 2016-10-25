@@ -1,10 +1,9 @@
 # URL Shortener Microservice
 
-
 Project created for Free Code Camp back-end curriculum:  
 https://www.freecodecamp.com/challenges/url-shortener-microservice
 
-======
+============
 
 Here are the specific user stories you should implement for this project:
 
@@ -14,7 +13,7 @@ User Story: If I pass an invalid URL that doesn't follow the valid http://www.ex
 
 User Story: When I visit that shortened URL, it will redirect me to my original link.
 
-======
+============
 
 
 
