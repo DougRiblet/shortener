@@ -2,7 +2,7 @@ var mongoose = require( 'mongoose' );
 var autoIncrement = require("mongodb-autoincrement");
 
 autoIncrement.setDefaults({
-	field: "short"
+	field: "shortened"
 });
 
 if(!process.env.URI){
@@ -31,16 +31,13 @@ mongoose.connection.once('open', function() {
 
   var linkSchema = mongoose.Schema({
     original: String,
-    short: Number
+    shortened: Number
   });
+
   linkSchema.plugin(autoIncrement.mongoosePlugin);
 
-  // Store song documents in a collection called "songs"
-  var Song = mongoose.model('songs', songSchema);
+  var Link = mongoose.model('Link', linkSchema);
 });
-
-
-
 
 // if node process ends, close the connection to mongoose
 process.on('SIGINT', function(){
