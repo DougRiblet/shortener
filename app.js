@@ -13,7 +13,7 @@ app.get('/', function (req, res) {
 });
 
 app.get('/make/:input', function(req, res) {
-	console.log("=== reaching make3")
+	console.log("=== reaching make")
 	var original = req.params.input;
 	var code = "0001";
 	var output;
