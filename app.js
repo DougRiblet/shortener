@@ -7,6 +7,14 @@ var sequence = require('mongoose-sequence');
 var app = express();
 var port = process.env.PORT || 8060;
 
+if(!process.env.MONGODB_URI){
+  var uri = require( './uri' ).uri;
+} else {
+  var uri = process.env.MONGODB_URI;
+}
+
+mongoose.connect(uri);
+
 // ENDPOINTS
 
 app.get('/', function (req, res) {
@@ -53,15 +61,6 @@ app.use(function(req, res, next) {
 });
 
 // DATABASE
-
-if(!process.env.URI){
-  var uri = require( './uri' ).uri;
-} else {
-  var uri = process.env.URI;
-}
-
-mongoose.connect(uri);
-
 
 var linkSchema = mongoose.Schema({
   original: String
