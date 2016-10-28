@@ -2,6 +2,7 @@ var express = require("express");
 var path    = require("path");
 var validator = require("validator");
 var mongoose = require( 'mongoose' );
+var sequence = require('mongoose-sequence');
 
 var app = express();
 var port = process.env.PORT || 8060;
@@ -25,7 +26,7 @@ app.get('/make/:input', function(req, res) {
   			console.log("data returned when creating new link: ", data);
   			res.json({
   				"original":data.original,
-  				"shortened":data._id
+  				"shortened":"https://szurl.herokuapp.com/go/"+data.shortened
   			});
   		}
 		})
@@ -48,7 +49,7 @@ mongoose.connect(uri);
 var linkSchema = mongoose.Schema({
   original: String
 });
-
+linkSchema.plugin(sequence, {inc_field: 'shortened'});
 var Link = mongoose.model('Link', linkSchema);
 
 // Connection Events
