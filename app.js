@@ -31,6 +31,22 @@ app.get('/make/:input', function(req, res) {
   	res.json({"original":original,"shortened":"ERROR - not a valid URL"});
   }
 });
+ 
+app.get('/go/:short', function(req, res) {
+	console.log("======reaching go")
+	var short = req.params.short;
+	Link.findOne({'shortened': short}, function (err, data) {
+	  if (err) { 
+	  	console.log("link redirect error: ", err);
+	  } else {
+	  	res.redirect(301, data.original);
+	  }
+  })
+});
+
+app.use(function(req, res, next) {
+  res.status(404).send('Error 404');
+});
 
 // DATABASE
 
