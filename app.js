@@ -13,6 +13,10 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname+'/index.html'));
 });
 
+app.get('/favicon.ico', function(req, res) {
+  res.sendStatus(200);
+});
+
 app.get('/make/:input', function(req, res) {
 	var original = req.params.input;
   if (validator.isURL(original)){
