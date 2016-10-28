@@ -2,7 +2,6 @@ var express = require("express");
 var path    = require("path");
 var validator = require("validator");
 var mongoose = require( 'mongoose' );
-var autoIncrement = require("mongodb-autoincrement");
 
 var app = express();
 var port = process.env.PORT || 8060;
@@ -24,7 +23,10 @@ app.get('/make/:input', function(req, res) {
   			console.log("link create error: ", err);
   		} else {
   			console.log("data returned when creating new link: ", data);
-  			res.json({"original":data.original,"shortened":data.shortened});
+  			res.json({
+  				"original":data.original,
+  				"shortened":data._id
+  			});
   		}
 		})
   } else {
@@ -42,14 +44,10 @@ if(!process.env.URI){
 
 mongoose.connect(uri);
 
-autoIncrement.setDefaults({ field: "shortened" });
 
 var linkSchema = mongoose.Schema({
-  original: String,
-  shortened: Number
+  original: String
 });
-
-linkSchema.plugin(autoIncrement.mongoosePlugin);
 
 var Link = mongoose.model('Link', linkSchema);
 
