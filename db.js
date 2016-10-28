@@ -26,18 +26,15 @@ mongoose.connection.on('disconnected', function(){
   console.log('Mongoose db has been disconnected.');
 })
 
-
-mongoose.connection.once('open', function() {
-
-  var linkSchema = mongoose.Schema({
-    original: String,
-    shortened: Number
-  });
-
-  linkSchema.plugin(autoIncrement.mongoosePlugin);
-
-  var Link = mongoose.model('Link', linkSchema);
+// Set up schema and collection
+var linkSchema = mongoose.Schema({
+  original: String,
+  shortened: Number
 });
+
+linkSchema.plugin(autoIncrement.mongoosePlugin);
+
+var Link = mongoose.model('Link', linkSchema);
 
 // if node process ends, close the connection to mongoose
 process.on('SIGINT', function(){

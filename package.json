@@ -19,7 +19,6 @@
   "dependencies": {
     "express": "^4.14.0",
     "mongodb": "^2.2.11",
-    "mongodb-autoincrement": "^1.0.1",
     "mongoose": "^4.6.5",
     "validator": "^6.1.0"
   }
