@@ -26,37 +26,36 @@ app.get('/favicon.ico', function(req, res) {
 });
 
 app.get('/make/:input*', function(req, res) {
-	var original = req.url.slice(6);
+  var original = req.url.slice(6);
   if (validator.isURL(original)){
-  	var regexhttp = new RegExp("^(http|https)://", "i");
-  	if (!regexhttp.test(original)) {
-  		original = "http://" + original;
-  	}
-  	var submission = new Link({original:original});
-		submission.save(function (err, data) {
-  		if (err) {
-  			console.log("link submission error: ", err);
-  		} else {
-  			res.json({
-  				"original":data.original,
-  				"shortened":"https://szurl.herokuapp.com/go/"+data.shortened
-  			});
-  		}
-		})
+    var regexhttp = new RegExp("^(http|https)://", "i");
+    if (!regexhttp.test(original)) {
+      original = "http://" + original;
+    }
+    var submission = new Link({original:original});
+    submission.save(function (err, data) {
+      if (err) {
+        console.log("link submission error: ", err);
+      } else {
+        res.json({
+          "original": data.original,
+          "shortened": "https://szurl.herokuapp.com/go/" + data.shortened
+        });
+      }
+    })
   } else {
-  	res.json({"original":original,"shortened":"ERROR - not a valid URL"});
+    res.json({"original":original,"shortened":"ERROR - not a valid URL"});
   }
 });
  
 app.get('/go/:short', function(req, res) {
-	console.log("======reaching go")
-	var short = req.params.short;
-	Link.findOne({'shortened': short}, function (err, data) {
-	  if (err) { 
-	  	console.log("link redirect error: ", err);
-	  } else {
-	  	res.redirect(301, data.original);
-	  }
+  var short = req.params.short;
+  Link.findOne({'shortened': short}, function (err, data) {
+    if (err) {
+      console.log("link redirect error: ", err);
+    } else {
+      res.redirect(301, data.original);
+    }
   })
 });
 
