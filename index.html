@@ -9,15 +9,22 @@
     background-color: #faf7ee;
     color: #111;
   	font-family: Arial, Helvetica, sans-serif;
-  	font-size: 16px;
+  	font-size: 14px;
   	line-height: 150%;
   }
-  .container, .jumbotron .container {max-width: 700px; margin:10px auto;}
-  .jumbotron {
-  	background-color: #723; color: #faf7ee;
-  	padding-top: 16px; padding-bottom: 16px;
+  .container, .jumbotron .container {
+    max-width: 700px;
+    margin:10px auto;
   }
-  h3 {margin-top: 1em; text-decoration: underline;}
+  .jumbotron {
+  	background-color: #723;
+    color: #faf7ee;
+  	padding-top: 16px;
+    padding-bottom: 16px;
+  }
+  h4 {
+    margin-top: 1em; text-decoration: underline;
+  }
   .example {
   	font-family: "Lucida Console", Monaco, monospace;
   	background-color: #eee;
@@ -35,7 +42,7 @@
 
 <div class="container">
 
-<h3>How to use this microservice</h3>
+<h4>How to use this service</h4>
 
 <p>Send a valid URL as parameter to <span class="example">https://szurl.herokuapp.com/make/</span>.</p>
 
@@ -43,13 +50,13 @@
 
 <p>Future visits to the shortened URL will redirect to the original URL.</p>
 
-<h3>Examples</h3>
+<h4>Example</h4>
 
-<p>Input: </p>
+<p>Input: <span class="example">http://reason.com/blog/2016/10/27/marijuana-legalization-looks-likely-in-t</span></p>
 
-<p>Output: </p>
+<p>Output: <span class="example">{"original": "http://reason.com/blog/2016/10/27/marijuana-legalization-looks-likely-in-t", "shortened": "https://szurl.herokuapp.com/go/17"}</span></p>
 
-<p>Use: </p>
+<p>Use: <a href="https://szurl.herokuapp.com/go/17">https://szurl.herokuapp.com/go/17</a></p>
 
 </div>
 
