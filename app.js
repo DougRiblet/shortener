@@ -28,6 +28,10 @@ app.get('/favicon.ico', function(req, res) {
 app.get('/make/:input', function(req, res) {
 	var original = req.params.input;
   if (validator.isURL(original)){
+  	var regexhttp = new RegExp("^(http|https)://", "i");
+  	if (!regexhttp.test(original)) {
+  		original = "http://" + original;
+  	}
   	var submission = new Link({original:original});
 		submission.save(function (err, data) {
   		if (err) {
