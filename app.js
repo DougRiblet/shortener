@@ -25,7 +25,7 @@ app.get('/favicon.ico', function(req, res) {
   res.sendStatus(200);
 });
 
-app.get('/make/:input*', function(req, res) {
+app.get('/make/*', function(req, res) {
   var original = req.url.slice(6);
   if (validator.isURL(original)){
     var regexhttp = new RegExp("^(http|https)://", "i");
