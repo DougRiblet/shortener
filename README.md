@@ -8,7 +8,7 @@ Deployed on Heroku: <https://szurl.herokuapp.com/>
 
 Github repository: <https://github.com/smashzen/shortener>
 
-Other projects in the API microservice series:  
+Other projects in the API microservice series: 
 * Timestamp: <https://github.com/smashzen/timestamp-s7z>  
 * Image Search Abstraction Layer: <https://github.com/smashzen/abstraction>  
 * Request Header Parser: <https://github.com/smashzen/reqheadparser>  
