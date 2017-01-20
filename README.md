@@ -1,13 +1,20 @@
 # URL Shortener Microservice
 
-Project created for Free Code Camp back-end curriculum:  
-https://www.freecodecamp.com/challenges/url-shortener-microservice
+Created by Doug Riblet
 
-Deployed on Heroku:  
-https://szurl.herokuapp.com/
+Stack: Node, Express, MongoDB
 
-Github repository:  
-https://github.com/smashzen/shortener
+Deployed on Heroku: <https://szurl.herokuapp.com/>
+
+Github repository: <https://github.com/smashzen/shortener>
+
+Other projects in the API microservice series:  
+* Timestamp: <https://github.com/smashzen/timestamp-s7z>  
+* Image Search Abstraction Layer: <https://github.com/smashzen/abstraction>  
+* Request Header Parser: <https://github.com/smashzen/reqheadparser>  
+* File Metadata: <https://github.com/smashzen/file-metadata>  
+
+Project created for Free Code Camp back-end curriculum: <https://www.freecodecamp.com/challenges/url-shortener-microservice>
 
 The original FCC assignment read:
 
